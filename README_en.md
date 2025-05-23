@@ -1,5 +1,9 @@
 [中文说明 (Chinese README)](README.md)
 
+# HTML Semantic Translation Batch Tool
+
+> **⚠️ Important Limitation: This tool currently only supports books or documents whose entire content is contained in a single HTML file. It does NOT support e-books with navigation bars, table of contents pages, or multi-page structures.**
+
 ## Environment Requirements
 
 - Node.js ≥ 18 (Recommended: v23.11.0)
@@ -8,8 +12,6 @@
 - puppeteer@24.9.0
 
 All dependencies are version-locked. Just run `npm install` to reproduce the environment.
-
-# HTML Semantic Translation Batch Tool
 
 This project is a general-purpose tool for batch translation and injection of semantic content in HTML files. It is suitable for high-quality automatic translation of large-scale technical documents, e-books, and more.
 
