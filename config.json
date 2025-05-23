@@ -1,0 +1,23 @@
+{
+  "files": {
+    "sourceHtml": " ",
+    "outputHtml": " ",
+    "textNodes": "text_nodes.json",
+    "translatedNodes": "translated_nodes.json"
+  },
+  "directories": {
+    "batches": "batches",
+    "results": "results"
+  },
+  "extraction": {
+    "tags": [
+      "p", "li", "blockquote", "section", "article",
+      "td", "th", "h1", "h2", "h3", "h4", "h5", "h6"
+    ]
+  },
+  "translation": {
+    "model": "gemini-1.5-pro",
+    "batchSize": 30,
+    "systemPrompt": " "
+  }
+}
