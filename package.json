@@ -1,6 +1,6 @@
 {
-  "name": "www.sigbus.info",
-  "version": "1.0.0",
+  "name": "htmlbook-translator-withllm",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +10,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
-    "dotenv": "16.5.0",
-    "puppeteer": "24.9.0"
+    "@google/generative-ai": "latest",
+    "dotenv": "latest",
+    "puppeteer": "latest",
+    "better-sqlite3": "latest"
   }
 }

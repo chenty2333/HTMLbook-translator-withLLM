@@ -4,7 +4,12 @@ const puppeteer = require('puppeteer');
 
 // 加载配置文件
 // Load configuration file
-const config = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'config.json'), 'utf-8'));
+const config = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../config.json'), 'utf-8'));
+// 项目根目录
+const ROOT = path.resolve(__dirname, '..');
+// 数据库 API
+const { openDb, insertTextNodes } = require('./db');
+openDb();
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -12,7 +17,7 @@ const config = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'config.json')
 
   // 读取 HTML 文件
   // Read HTML file
-  const htmlPath = path.resolve(__dirname, config.files.sourceHtml);
+  const htmlPath = path.resolve(ROOT, config.files.sourceHtml);
   const htmlContent = fs.readFileSync(htmlPath, 'utf-8');
   await page.setContent(htmlContent);
 
@@ -61,8 +66,8 @@ const config = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'config.json')
   }, config.extraction);
 
   const withIds = textBlocks.map((item, idx) => ({ id: idx + 1, ...item }));
-  fs.writeFileSync(config.files.textNodes, JSON.stringify(withIds, null, 2), 'utf-8');
-  console.log(`✅ 提取 ${withIds.length} 段语义文本，已写入 ${config.files.textNodes}`); // 提取完成
+  // 将提取的文本节点写入数据库
+  insertTextNodes(withIds);
 
   await browser.close();
 })();

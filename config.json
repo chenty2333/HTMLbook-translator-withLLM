@@ -1,13 +1,13 @@
 {
   "files": {
-    "sourceHtml": " ",
-    "outputHtml": " ",
-    "textNodes": "text_nodes.json",
-    "translatedNodes": "translated_nodes.json"
+    "sourceHtml": "input/index_.html",
+    "outputHtml": "output/output.html",
+    "textNodes": "intermediate/text_nodes.json",
+    "translatedNodes": "intermediate/translated_nodes.json"
   },
   "directories": {
-    "batches": "batches",
-    "results": "results"
+    "batches": "intermediate/batches",
+    "results": "intermediate/results"
   },
   "extraction": {
     "tags": [
@@ -16,8 +16,12 @@
     ]
   },
   "translation": {
-    "model": "gemini-1.5-pro",
-    "batchSize": 30,
-    "systemPrompt": " "
+    "model": "gemini-2.5-flash-lite",
+    "batchSize": 100,
+    "systemPrompt": "Translate the following list of sentences to Chinese. Please follow these guidelines: Strive for accuracy, fluency, and elegance in your translations. The sentences may be contextually related, so consider their context when translating each one. Strictly preserve the numbering and order of each sentence as provided; do not alter or remove any numbers. Output only the translations, without any additional information or formatting. Do not add or remove formatting; focus on translating the content itself. You may adapt the tone and style to match the original, especially for idioms, colloquialisms, and the author's personal style—aim for a natural and faithful translation. This is a technical (computer-related) text. Do not translate all technical terms or keywords; keep terms in English if appropriate, based on the context. Here is the content to translate:\n\n1. This is the first sentence to translate.\n2. Here comes the second sentence, with more detail.\n3. And finally the third piece of text."
+  }
+  ,
+  "database": {
+    "path": "intermediate/translation.db"
   }
 }
